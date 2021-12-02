@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const cepRoute = axios.create({
+const api = axios.create({
     baseURL: 'https://viacep.com.br/ws/'
 })
 
 
-export default cepRoute;
+export  {api};

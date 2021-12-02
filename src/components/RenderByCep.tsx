@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react'
-import cepRoute from '../api/routes'
+
+import { api } from '../api/apiRoutes'
 
 interface IFields {
   cep: string
@@ -9,11 +10,11 @@ interface IFields {
   neighborhood: string
 }
 
-export default function Adress() {
+export default function RenderByCep() {
   const [fields, setFields] = useState({} as IFields)
 
   async function setFieldsByCep(cep: string) {
-    const cepResponse = await cepRoute.get(`/${cep}/json/`)
+    const cepResponse = await api.get(`/${cep}/json/`)
 
     if (cepResponse.data) {
       setFields({
@@ -23,14 +24,12 @@ export default function Adress() {
         street: cepResponse.data.logradouro,
         neighborhood: cepResponse.data.bairro
       })
-    } else {
-      return
     }
   }
 
   return (
     <>
-      <h1>Endereço</h1>
+      <h1>RenderByCep</h1>
       <div className='inputs-container'>
         <input
           type='text'
