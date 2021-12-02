@@ -1,11 +1,10 @@
-import React from 'react'
-import Adress from './components/Adress'
 import './assets/css/index.css'
+import AppRoutes from './routes'
 
 function App() {
   return (
     <>
-      <Adress></Adress>
+      <AppRoutes />
     </>
   )
 }
